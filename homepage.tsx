@@ -315,7 +315,7 @@ export default function Homepage() {
         title={!openWindows.mainWindow ? "Double-click to open YUAN6900" : "YUAN6900 is already running"}
       >
         <img
-          src="/images/chinex6900-desktop-icon.png"
+          src="/images/yuan6900-desktop-icon.png"
           alt="YUAN6900"
           className={`w-12 h-12 mb-1 transition-all duration-200 ${!openWindows.mainWindow ? "" : "grayscale"}`}
           style={{ imageRendering: "pixelated" }}
