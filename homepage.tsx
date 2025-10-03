@@ -1118,11 +1118,24 @@ export default function Homepage() {
             <div className="flex-1 p-4">
               <div className="bg-white border border-gray-400 border-t-gray-600 border-l-gray-600 border-r-white border-b-white p-4 h-full">
                 <div className="text-center">
-                  <div className="text-4xl mb-4">🛠️</div>
-                  <div className="font-bold text-red-800 text-lg mb-4">YUAN6900 TOOLS</div>
-                  <div className="text-black text-sm">
-                    <p>Sacred tools for the enlightened trader.</p>
-                    <p className="mt-2 text-gray-600">Functionality will be added soon...</p>
+                  <div className="text-4xl mb-4">🐦</div>
+                  <div className="font-bold text-red-800 text-lg mb-4">YUAN6900 COMMUNITY</div>
+                  <div className="text-black text-sm space-y-4">
+                    <p>Join the sacred community of enlightened traders.</p>
+                    <div className="bg-gray-100 border border-gray-300 p-3 rounded">
+                      <p className="font-bold text-red-700 mb-2">Official X Community:</p>
+                      <a 
+                        href="https://x.com/i/communities/1974254554788344033" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded font-bold text-sm transition-colors duration-200 inline-block"
+                      >
+                        Join YUAN6900 Community
+                      </a>
+                    </div>
+                    <p className="text-gray-600 text-xs">
+                      Connect with fellow traders and stay updated with the latest market insights.
+                    </p>
                   </div>
                 </div>
               </div>
