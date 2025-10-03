@@ -39,7 +39,6 @@ export default function Homepage() {
     sacredSecurity: false,
     viewDocs: false,
     dexScreener: false,
-    toolsWindow: false, // Add this new window
   })
   const [minimizedWindows, setMinimizedWindows] = useState({
     mainWindow: false, // Main window minimize state
@@ -48,7 +47,6 @@ export default function Homepage() {
     sacredSecurity: false,
     viewDocs: false,
     dexScreener: false,
-    toolsWindow: false, // Add this new window
   })
 
   // Drag functionality state
@@ -66,7 +64,6 @@ export default function Homepage() {
     viewDocs: { x: 240, y: 96 },
     marketAlert: { x: 0, y: 80 }, // Will be updated on client side
     dexScreener: { x: 100, y: 50 },
-    toolsWindow: { x: 200, y: 100 }, // Add this new window position
   })
 
   const [windowZIndex, setWindowZIndex] = useState({
@@ -77,7 +74,6 @@ export default function Homepage() {
     viewDocs: 30,
     marketAlert: 40, // Higher z-index for alert
     dexScreener: 35,
-    toolsWindow: 35, // Add this new window z-index
   })
 
   const [highestZIndex, setHighestZIndex] = useState(30)
@@ -350,8 +346,8 @@ export default function Homepage() {
       {/* Twitter Icon */}
       <div
         className="fixed top-4 left-44 w-16 h-20 flex flex-col items-center cursor-pointer hover:bg-blue-500 hover:bg-opacity-20 p-1 rounded transition-all duration-200"
-        onDoubleClick={() => openWindow("toolsWindow")}
-        title="Double-click to open Twitter"
+        onClick={() => window.open("https://x.com/i/communities/1974254554788344033", "_blank")}
+        title="Click to join YUAN6900 Community on X"
       >
         <img
           src="/images/tools-icon.png"
@@ -415,14 +411,6 @@ export default function Homepage() {
             className={`bg-gray-300 border border-gray-400 border-t-gray-600 border-l-gray-600 border-r-white border-b-white px-3 py-1 text-black text-xs mr-1 ${minimizedWindows.dexScreener ? "bg-gray-400" : "bg-gray-200"}`}
           >
             DEX Temple
-          </button>
-        )}
-        {openWindows.toolsWindow && (
-          <button
-            onClick={() => minimizeWindow("toolsWindow")}
-            className={`bg-gray-300 border border-gray-400 border-t-gray-600 border-l-gray-600 border-r-white border-b-white px-3 py-1 text-black text-xs mr-1 ${minimizedWindows.toolsWindow ? "bg-gray-400" : "bg-gray-200"}`}
-          >
-            Twitter
           </button>
         )}
 
@@ -1081,68 +1069,6 @@ export default function Homepage() {
         </div>
       )}
 
-      {/* Tools Window */}
-      {openWindows.toolsWindow && (
-        <div
-          className={`fixed w-[600px] h-[400px] bg-gray-300 border-2 border-white border-t-white border-l-white border-r-gray-600 border-b-gray-600 shadow-lg ${minimizedWindows.toolsWindow ? "hidden" : ""}`}
-          style={{
-            left: `${windowPositions.toolsWindow.x}px`,
-            top: `${windowPositions.toolsWindow.y}px`,
-            zIndex: windowZIndex.toolsWindow,
-          }}
-        >
-          <div
-            className="bg-gradient-to-r from-red-700 to-red-800 text-white px-2 py-1 flex items-center justify-between cursor-move"
-            onMouseDown={(e) => handleMouseDown(e, "toolsWindow")}
-          >
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-yellow-400 border border-yellow-600 mr-2"></div>
-              <span className="font-bold text-sm">YUAN6900 Twitter - 推特</span>
-            </div>
-            <div className="flex">
-              <button
-                onClick={() => minimizeWindow("toolsWindow")}
-                className="w-6 h-5 bg-gray-300 border border-white border-t-white border-l-white border-r-gray-600 border-b-gray-600 mr-1 flex items-center justify-center hover:bg-gray-400"
-              >
-                <Minus className="w-3 h-3 text-black" />
-              </button>
-              <button
-                onClick={() => closeWindow("toolsWindow")}
-                className="w-6 h-5 bg-gray-300 border border-white border-t-white border-l-white border-r-gray-600 border-b-gray-600 flex items-center justify-center hover:bg-gray-400"
-              >
-                <X className="w-3 h-3 text-black" />
-              </button>
-            </div>
-          </div>
-          <div className="h-full overflow-hidden flex flex-col">
-            <div className="flex-1 p-4">
-              <div className="bg-white border border-gray-400 border-t-gray-600 border-l-gray-600 border-r-white border-b-white p-4 h-full">
-                <div className="text-center">
-                  <div className="text-4xl mb-4">🐦</div>
-                  <div className="font-bold text-red-800 text-lg mb-4">YUAN6900 COMMUNITY</div>
-                  <div className="text-black text-sm space-y-4">
-                    <p>Join the sacred community of enlightened traders.</p>
-                    <div className="bg-gray-100 border border-gray-300 p-3 rounded">
-                      <p className="font-bold text-red-700 mb-2">Official X Community:</p>
-                      <a 
-                        href="https://x.com/i/communities/1974254554788344033" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded font-bold text-sm transition-colors duration-200 inline-block"
-                      >
-                        Join YUAN6900 Community
-                      </a>
-                    </div>
-                    <p className="text-gray-600 text-xs">
-                      Connect with fellow traders and stay updated with the latest market insights.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Market Alert Window - Now Draggable */}
       <div
