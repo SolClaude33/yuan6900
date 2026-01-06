@@ -346,7 +346,7 @@ export default function Homepage() {
       {/* Twitter Icon */}
       <div
         className="fixed top-4 left-44 w-16 h-20 flex flex-col items-center cursor-pointer hover:bg-blue-500 hover:bg-opacity-20 p-1 rounded transition-all duration-200"
-        onClick={() => window.open("https://x.com/i/communities/1974254554788344033", "_blank")}
+        onClick={() => window.open("https://x.com/i/communities/2008429146154688778", "_blank")}
         title="Click to join YUAN6900 Community on X"
       >
         <img
